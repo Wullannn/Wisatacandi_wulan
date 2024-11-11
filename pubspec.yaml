@@ -65,7 +65,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - images/borobudur.jpeg
-    - images/jago .jpeg
+    - images/jago.jpeg
     - images/kalasan.jpeg
     - images/logo_candi.png
     - images/lumbung.jpeg
