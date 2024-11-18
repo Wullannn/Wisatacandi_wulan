@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wisatacandi_wulan/screens/detail_screen.dart';
 
 class ItemCard extends StatelessWidget {
   final dynamic candi;
@@ -10,7 +11,14 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //TODO: 6. Implementasi routing ke DetailScreen
-    return Card(
+    return InkWell(
+      onTap: (){
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => DetailScreen(candi: candi),
+          ),
+        );
+      },
+      child: Card(
       //TODO: 2. Tetapkan parameter shape, margin, dan elevation dari Cari
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
@@ -52,6 +60,7 @@ class ItemCard extends StatelessWidget {
           // TODO: 4. Buat Text sebagai anak dari Column
           // TODO: 5. Buat Tect sebagai anak dari Column
         ],
+      ),
       ),
     );
   }
