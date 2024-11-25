@@ -70,7 +70,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     ElevatedButton(onPressed: (){}, child: Text('Sign In')),
                     // TODO: 8. Pasang TextButton Sign up
                     SizedBox(height: 10),
-                    //TextButton(onPressed: (){}, child: Text('Belum Punya Akun? Daftar di sini'))
+                    //TextButton(
+                    // onPressed: (){},
+                    // child: Text('Belum Punya Akun? Daftar di sini'))
                     RichText(
                         text: TextSpan(
                             text: 'Belum punya akun?',
@@ -84,7 +86,9 @@ class _SignInScreenState extends State<SignInScreen> {
                                     fontSize: 16
                                 ),
                                 recognizer: TapGestureRecognizer()
-                                  ..onTap = (){},
+                                  ..onTap = (){
+                                  Navigator.pushNamed(context, '/signup');
+                                  },
                               )
                             ]
                         ))
