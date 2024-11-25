@@ -9,19 +9,40 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-
-  // TODO:1. Deklarasikan variabel
-  final TextEditingController _namapcontroller = TextEditingController();
-
+  final TextEditingController _namacontroller = TextEditingController();
   final TextEditingController _usernamecontroller = TextEditingController();
-
   final TextEditingController _passwordcontroller = TextEditingController();
-
   String _errorText = '';
 
-  bool _isSignedIn = false;
-
   bool _obscurePassword = true;
+
+  void _signUp(){
+    String name = _namacontroller.text.trim();
+    String username = _usernamecontroller.text.trim();
+    String password = _passwordcontroller.text.trim();
+
+    if (password.length<8 ||
+        !password.contains(RegExp(r'[A-Z]')) ||
+        !password.contains(RegExp(r'[a-z]')) ||
+        !password.contains(RegExp(r'[0-9]')) ||
+        !password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))){
+      setState(() {
+        _errorText = 'Minimal 8 karakter, kombinasi [A-Z], [a-z], [0-9], [!@#\\\$%^&*(),.?":{}|<>]';
+      });
+    };
+    print('*** Sign Up berhasil');
+    print('Nama : $name');
+    print('Nama Pengguna : $username');
+    print('Password : $password');
+
+  }
+
+  // Todo 2. Mmebuat fungsi dispose
+  @override
+  void dispose(){
+    //   Todo: Implement dispose
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -39,7 +60,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     TextFormField(
-                      controller: _namapcontroller,
+                      controller: _namacontroller,
                       decoration: InputDecoration(
                         labelText: "Nama",
                         border: OutlineInputBorder(),
